@@ -1,0 +1,72 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+:root {
+  --linear: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(236, 9, 191, 1) 0%,
+    rgba(0, 212, 255, 1) 74%
+  );
+  --btn: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(236, 9, 191, 1) 0%,
+    rgba(184, 0, 255, 1) 0%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+.login {
+  background: rgb(2, 0, 36);
+  background: var(--linear);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main {
+  min-height: 90vh;
+}
+.box {
+  min-height: inherit;
+}
+
+a {
+  text-decoration: none;
+}
+.chart {
+  background: rgba(2, 0, 36, 0);
+  background: var(--linear);
+  min-height: 20vh;
+}
+.flex-item {
+  flex-basis: 50%;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media (max-width: 576px) {
+  .circle {
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+  }
+  .transaction-title,
+  .price,
+  .date {
+    font-size: 12px;
+  }
+ 
+}

@@ -50,6 +50,7 @@ const Login = ({ loggedInUser, setLoggedInUser }) => {
     setResp({ status: result?.status, message: result?.message });
     if (result?.status === "success") {
       localStorage.setItem("user", JSON.stringify(result.user));
+      console.log("User logged in successfully");
 
       navigate("/dashboard");
     }

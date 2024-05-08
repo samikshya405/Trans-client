@@ -23,7 +23,7 @@ const EachTrans = ({ setidToDelete, idToDelete, ...item }) => {
       }}
     >
       <div className=" d-flex align-items-center gap-3">
-        <Form.Check name={item._id} onChange={handleCheckedBox} />
+        <Form.Check name={item._id} checked={idToDelete.includes(item._id)} onChange={handleCheckedBox} />
         <div
           className="circle shadow-lg"
           style={{
@@ -36,7 +36,7 @@ const EachTrans = ({ setidToDelete, idToDelete, ...item }) => {
             <FaMoneyBillTrendUp fontSize={"40px"} color="white" />
           )}
         </div>
-        <p className="fw-bold transaction-title ">{item.title}</p>
+        <p className="fw-bold transaction-title text-capitalize ">{item.title}</p>
       </div>
       <div className="flex-item">
         <Row>

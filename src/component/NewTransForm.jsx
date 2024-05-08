@@ -39,25 +39,24 @@ const inputs = [
     required: true,
   },
 ];
-
-const NewTransForm = ({getUserTransaction, handleClose}) => {
-    const [formData, setFormData] = useState({})
+const initialState = { type: "", title: "", amount: "", date:"" };
+const NewTransForm = ({ getUserTransaction, handleClose }) => {
+  const [formData, setFormData] = useState(initialState);
   const handleOnChange = (e) => {
-    const {name,value} = e.target
+    const { name, value } = e.target;
 
-        setFormData({...formData, [name]:value})
+    setFormData({ ...formData, [name]: value });
   };
-  const handleSubmit=async(e)=>{
-    e.preventDefault()
-    const {message, status} = await postNewTrans(formData)
-    
-    handleClose && handleClose()
-       
-     getUserTransaction && getUserTransaction()
-  
-        
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { message, status } = await postNewTrans(formData);
 
-  }
+    handleClose && handleClose();
+
+    getUserTransaction && getUserTransaction();
+
+    setFormData(initialState);
+  };
   return (
     <>
       <Form onSubmit={handleSubmit} className="p-4">
@@ -65,15 +64,23 @@ const NewTransForm = ({getUserTransaction, handleClose}) => {
           return (
             <div key={index}>
               {elemtype === "select" ? (
-                <CustomSelect {...item} onChange={handleOnChange}  />
+                <CustomSelect
+                  {...item}
+                  onChange={handleOnChange}
+                  value={formData[item.name]}
+                />
               ) : (
-                <CustomInput {...item} onChange={handleOnChange}  />
+                <CustomInput {...item} onChange={handleOnChange} value={formData[item.name]} />
               )}
             </div>
           );
         })}
         <div className="w-100">
-          <Button style={{background:"var(--btn)", color:"white"}} type="submit" className="w-100">
+          <Button
+            style={{ background: "var(--btn)", color: "white" }}
+            type="submit"
+            className="w-100"
+          >
             Add Transaction
           </Button>
         </div>

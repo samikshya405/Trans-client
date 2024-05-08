@@ -7,7 +7,7 @@ import { deleteTrans } from "../axios/axiosHelper";
 
 const btns = ["All", "Income", "Expenses"];
 
-const Transaction = ({ transactions }) => {
+const Transaction = ({ transactions,getUserTransaction }) => {
   const [button, setButton] = useState("All");
   const [list, setlist] = useState([]);
   const [idToDelete, setidToDelete] = useState([])
@@ -27,6 +27,7 @@ const Transaction = ({ transactions }) => {
   const handleDelete=async()=>{
     const res= await deleteTrans(idToDelete)
     setidToDelete([])
+    getUserTransaction()
   }
   useEffect(() => {
     setlist([...transactions]);

@@ -1,29 +1,25 @@
+import { Nav } from "react-bootstrap";
 import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+
+import { CiLogout } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 export const TopNav = ({ loggedInUser }) => {
-  const handleLogOut=()=>{
-    localStorage.removeItem("user")
-  }
+  
+  const handleLogOut = () => {
+    localStorage.removeItem("user");
+   
+  };
   return (
-    <Navbar expand="md" className="bg-info shadow-lg">
-      <Container>
-        <Navbar.Brand href="#home">TH App</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ms-auto">
-            {loggedInUser?._id ? (
-              <Nav.Link href="/" onClick={handleLogOut}>Log Out</Nav.Link>
-            ) : (
-              <>
-                <Nav.Link href="/">Login</Nav.Link>
-                <Nav.Link href="/signup">Sign Up</Nav.Link>
-              </>
-            )}
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+    <Container>
+      <div className="text-end">
+        <Nav.Link href="/" onClick={handleLogOut} role="button">
+        Signout
+        <CiLogout className="fs-4 fw-bold" />
+        </Nav.Link>
+       
+      </div>
+    </Container>
   );
 };
+

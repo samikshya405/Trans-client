@@ -8,6 +8,7 @@ import { fetchTrans } from "../axios/axiosHelper";
 import ModalForm from "../component/ModalForm";
 import PieChart from "../component/Piechart";
 
+
 import { BsArrowUpCircleFill } from "react-icons/bs";
 import { BsArrowDownCircleFill } from "react-icons/bs";
 
@@ -44,9 +45,10 @@ const Dashboard = ({ loggedInUser }) => {
   return (
     <>
       <AuthComp loggedInUser={loggedInUser}>
-        {/* <TopNav loggedInUser={loggedInUser} /> */}
+        <TopNav loggedInUser={loggedInUser} />
         <Container className="main p-3 ">
-          <h4> Welcome back {loggedInUser?.name}</h4>
+          
+          <h4> Welcome back <span className="text-capitalize">{loggedInUser?.name} !</span></h4>
 
           <Row className="">
             <Col
@@ -108,7 +110,7 @@ const Dashboard = ({ loggedInUser }) => {
 
           
 
-          <Transaction transactions={transactions} />
+          <Transaction transactions={transactions} getUserTransaction={getUserTransaction} />
         </Container>
 
         {/* <Footer /> */}

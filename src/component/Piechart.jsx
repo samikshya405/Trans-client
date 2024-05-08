@@ -23,7 +23,7 @@ const PieChart = ({income,expenses}) => {
               data: [income, expenses],
               backgroundColor: ["green", "red"],
               borderColor: "transparent",
-              // hoverBackgroundColor: ['#FF6384', '#36A2EB',],
+              
             },
           ],
         },
@@ -31,13 +31,21 @@ const PieChart = ({income,expenses}) => {
           responsive: true,
           maintainAspectRatio: false,
           cutout: "30%",
+          
+
         },
+        
       });
     }
   }, [income,expenses]);
 
+ 
+
   return (
+    <>
     <canvas ref={chartContainer} className="pie" style={{ width: "200px" }} />
+    </>
+    
   );
 };
 

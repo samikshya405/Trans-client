@@ -29,6 +29,7 @@
 }
 .main {
   min-height: 90vh;
+  /* position: relative; */
 }
 .box {
   min-height: inherit;
@@ -58,15 +59,16 @@ a {
   justify-content: center;
   align-items: center;
 }
-.wrapper{
-  position: relative;
-}
-.pop{
+/* .wrapper{
+  
+} */
+/* .pop{
   position: absolute;
   right: 0;
   bottom: 10px;
   position: fixed;
-}
+  
+} */
 
 @media (max-width: 576px) {
   .circle {
@@ -78,6 +80,13 @@ a {
   .price,
   .date {
     font-size: 14px;
+  }
+  .pop{
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    position: fixed;
+    
   }
  
 }

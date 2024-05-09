@@ -36,6 +36,7 @@ const Login = ({ loggedInUser, setLoggedInUser }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState(initialState);
   const [resp, setResp] = useState({});
+  const [isLoading, setIsLoading] = useState(false)
   useEffect(() => {
     loggedInUser?._id && navigate("/dashboard");
   }, [setLoggedInUser]);
@@ -50,7 +51,9 @@ const Login = ({ loggedInUser, setLoggedInUser }) => {
     toast.promise(signinPromise, {
       pending: "In progress..."
     });
+    setIsLoading(true)
     const result = await signinPromise;
+    setIsLoading(false)
     console.log(result.status)
     setResp({ status: result?.status, message: result?.message });
     if (result?.status === "success") {
@@ -102,9 +105,14 @@ const Login = ({ loggedInUser, setLoggedInUser }) => {
                   })}
                   <Row>
                     <Col xs={12} lg={5}>
-                      <Button className="w-100" type="submit">
+                      {
+                        isLoading ? <Button disabled className="w-100" type="submit">
+                        Login
+                      </Button>:<Button className="w-100" type="submit">
                         Login
                       </Button>
+                      }
+                      
                     </Col>
                   </Row>
                 </Form>

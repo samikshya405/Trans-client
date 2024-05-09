@@ -14,6 +14,7 @@ import { BsArrowDownCircleFill } from "react-icons/bs";
 
 const Dashboard = ({ loggedInUser }) => {
   
+  
 
   const [transactions, setTransactions] = useState([]);
   const totalbalance = transactions.reduce((a, b) => {

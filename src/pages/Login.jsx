@@ -34,12 +34,15 @@ const initialState = {
 
 const Login = ({ loggedInUser, setLoggedInUser }) => {
   const navigate = useNavigate();
+  
   const [formData, setFormData] = useState(initialState);
   const [resp, setResp] = useState({});
   const [isLoading, setIsLoading] = useState(false)
   useEffect(() => {
+    console.log(loggedInUser)
     loggedInUser?._id && navigate("/dashboard");
-  }, [setLoggedInUser]);
+    console.log(loggedInUser);
+  }, [loggedInUser,navigate]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

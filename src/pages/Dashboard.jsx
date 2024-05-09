@@ -50,14 +50,14 @@ const Dashboard = ({ loggedInUser }) => {
           
           <h4> Welcome back <span className="text-capitalize">{loggedInUser?.name} !</span></h4>
 
-          <Row className="">
+          <Row className="p-2">
             <Col
               xs={12}
               md={7}
               lg={7}
               className="chart shadow-lg rounded p-3  "
             >
-              <Row className="m-2 fw-bold text-light">
+              <Row className="m-2 fw-bold ">
                 Budget progress all time
               </Row>
               <Row>
@@ -68,18 +68,20 @@ const Dashboard = ({ loggedInUser }) => {
                 <Col xs={12} lg={7} className="d-grid align-items-center mt-4 ">
                   <Row>
                     <Col className="d-flex gap-3 align-items-center">
-                      <BsArrowDownCircleFill className="fs-3" color="green" />
+                      <BsArrowDownCircleFill className="fs-3" color="#936ee3" />
 
                       <div>
-                        <p className="text-light  p-0 m-0">Income</p>
-                        <p className="text-light fw-bold">${income}</p>
+                      <p className=" p-0 m-0 fw-bold">${income}</p>
+                        <p className="p-0 m-0">Income</p>
+                        
                       </div>
                     </Col>
                     <Col className="d-flex gap-3 align-items-center">
-                      <BsArrowUpCircleFill className="fs-3" color="red" />
+                      <BsArrowUpCircleFill className="fs-3" color="#ffc532" />
                       <div>
-                        <p className="text-light  p-0 m-0">Expenses</p>
-                        <p className="text-light fw-bold">${expenses}</p>
+                      <p className="p-0 m-0 fw-bold">${expenses}</p>
+                        <p className="  p-0 m-0">Expense</p>
+                        
                       </div>
                     </Col>
                   </Row>
@@ -88,7 +90,7 @@ const Dashboard = ({ loggedInUser }) => {
             </Col>
 
             <Col
-              className="shadow-lg p-2 d-md-block d-none "
+              className=" p-2 d-md-block d-none "
               xs={0}
               md={5}
               lg={5}

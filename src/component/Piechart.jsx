@@ -21,8 +21,9 @@ const PieChart = ({income,expenses}) => {
           datasets: [
             {
               data: [income, expenses],
-              backgroundColor: ["green", "red"],
+              backgroundColor: ["#936ee3", "#ffc532"],
               borderColor: "transparent",
+              cutout: "50%",
               
             },
           ],
@@ -30,7 +31,7 @@ const PieChart = ({income,expenses}) => {
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          cutout: "30%",
+          // cutout: "50%",
           
 
         },

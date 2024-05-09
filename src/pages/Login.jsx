@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import { Alert, Button, Form } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 import image from "../assets/trans.png";
 
@@ -45,12 +46,18 @@ const Login = ({ loggedInUser, setLoggedInUser }) => {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await userLogin(formData);
+    const signinPromise = userLogin(formData)
+    toast.promise(signinPromise, {
+      pending: "In progress..."
+    });
+    const result = await signinPromise;
     console.log(result.status)
     setResp({ status: result?.status, message: result?.message });
     if (result?.status === "success") {
       localStorage.setItem("user", JSON.stringify(result.user));
       console.log("User logged in successfully");
+      const userStr = localStorage.getItem("user")
+    userStr && setLoggedInUser(JSON.parse(userStr))
 
       navigate("/dashboard");
     }
@@ -101,6 +108,10 @@ const Login = ({ loggedInUser, setLoggedInUser }) => {
                     </Col>
                   </Row>
                 </Form>
+                <div className="py-2">
+                <p className="m-0">Email:abc@gmail.com</p>
+                <p>Password:123</p>
+                </div>
                 <p className="py-3 text-center">
                   Don't have an Account? <a href="/signup">Sign Up</a>
                 </p>

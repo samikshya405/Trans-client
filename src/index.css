@@ -38,8 +38,11 @@ a {
   text-decoration: none;
 }
 .chart {
-  background: rgba(2, 0, 36, 0);
-  background: var(--linear);
+  /* background: rgba(2, 0, 36, 0); */
+  /* background: var(--linear); */
+  /* background: rgba(0, 30, 255, 0.537); */
+  /* backdrop-filter: 5px; */
+  /* background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%); */
   min-height: 20vh;
 }
 .flex-item {

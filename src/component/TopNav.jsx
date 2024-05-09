@@ -12,7 +12,7 @@ export const TopNav = ({ loggedInUser }) => {
   };
   return (
     <Container>
-      <div className="text-end">
+      <div className="text-end my-2">
         <Nav.Link href="/" onClick={handleLogOut} role="button">
         Signout
         <CiLogout className="fs-4 fw-bold" />

@@ -12,8 +12,8 @@ function ModalForm({getUserTransaction}) {
 
   return (
     <>
-     <div className="text-end p-2 d-block d-md-none " onClick={handleShow}>
-          <IoIosAddCircle size={"42px"} style={{color:"blue"}}  role='button'/>
+     <div className="text-end p-2 d-block d-md-none pop " onClick={handleShow}>
+          <IoIosAddCircle size={"50px"} style={{color:"#936ee3"}}  role='button'/>
         </div>
       <Modal show={show} onHide={handleClose} centered>
       <Modal.Header closeButton>

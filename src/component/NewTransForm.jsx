@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { CustomInput, CustomSelect } from "./CustomInput";
 import { postNewTrans } from "../axios/axiosHelper";
+import { toast } from "react-toastify";
 
 const inputs = [
   {
@@ -39,17 +40,24 @@ const inputs = [
     required: true,
   },
 ];
+
 const initialState = { type: "", title: "", amount: "", date:"" };
 const NewTransForm = ({ getUserTransaction, handleClose }) => {
   const [formData, setFormData] = useState(initialState);
   const handleOnChange = (e) => {
     const { name, value } = e.target;
+    
 
     setFormData({ ...formData, [name]: value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { message, status } = await postNewTrans(formData);
+    const postPromise =postNewTrans(formData)
+    toast.promise(postPromise, {
+      pending: "In progress..."
+    });
+
+    const { message, status } = await postPromise ;
 
     handleClose && handleClose();
 

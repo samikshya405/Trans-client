@@ -43,7 +43,7 @@ const Dashboard = ({ loggedInUser }) => {
     getUserTransaction();
   }, []);
   return (
-    <>
+    <div className="wrapper">
       <AuthComp loggedInUser={loggedInUser}>
         <TopNav loggedInUser={loggedInUser} />
         <Container className="main p-3 ">
@@ -117,7 +117,7 @@ const Dashboard = ({ loggedInUser }) => {
 
         {/* <Footer /> */}
       </AuthComp>
-    </>
+    </div>
   );
 };
 
